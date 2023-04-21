@@ -4,6 +4,16 @@ This file provides information about React Router.
 
 ## Index
 
+- [Installation.](#install-the-pakage)
+- [Getting started.](#getting-started)
+- [Older solutions.](#older-solutions)
+- [Add links and navigation.](#add-links-and-navigate)
+- [Error Page.](#error-page)
+- [Highlight current path.](#highligth-current-path)
+- [Navigate programatically.](#navigate-programatically)
+- [Dynamic links.](#dynamic-links)
+- [Absolute and relative paths.](#absolute-and-relative-paths)
+
 ## Install the pakage
 
 ```bash
