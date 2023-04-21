@@ -106,8 +106,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <RouteLayout /> ,
     children: [
-      { path: '/', element: <Home />},
-      { path: '/about', element: <About />}
+      { index: true, element: <Home />},
+      { path: 'about', element: <About />}
     ]
   },
 ])
@@ -298,4 +298,38 @@ const ProductPage = () => {
 }
 
 export default ProductPage;
+```
+
+## Absolute and Relative Paths.
+
+Absoulte paths start with the "/" character, while relative paths don't start with the "/".
+
+* Absolute path.
+
+```javascript
+{
+  path: '/',
+  element: <RouteLayout /> ,
+  errorElement: <ErrorPage />,
+  children: [
+    { index: true, element: <Home /> },
+    { path: '/about', element: <About /> },
+    { path: '/products/:id', element: <ProductPage /> }
+  ]
+},
+```
+
+* Relative path.
+
+```javascript
+{
+  path: '/root',
+  element: <RouteLayout /> ,
+  errorElement: <ErrorPage />,
+  children: [
+    { index: true, element: <Home /> },
+    { path: 'about', element: <About /> },
+    { path: 'products/:id', element: <ProductPage /> }
+  ]
+},
 ```

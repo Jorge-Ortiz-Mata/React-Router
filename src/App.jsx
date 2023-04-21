@@ -7,13 +7,13 @@ import ProductPage from './pages/Product';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/root',
     element: <RouteLayout /> ,
     errorElement: <ErrorPage />,
     children: [
-      { path: '/', element: <Home /> },
-      { path: '/about', element: <About /> },
-      { path: '/products/:id', element: <ProductPage /> }
+      { path: '', element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'products/:id', element: <ProductPage /> }
     ]
   },
 ])
