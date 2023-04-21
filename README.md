@@ -135,3 +135,39 @@ const RouteLayout = () => {
 
 export default RouteLayout;
 ```
+
+## Error Page.
+
+We can add a general error page when a URL is been typped incorrectly.
+
+* App.jsx
+
+```javascript
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RouteLayout /> ,
+    errorElement: <ErrorPage />,
+    children: ...
+  },
+])
+```
+
+* src/pages/ErrorPage.jsx
+
+```javascript
+import Header from "../components/Header/Header";
+
+const ErrorPage = () => {
+
+  return(
+    <>
+      <Header />
+      <h2>URL not valid</h2>
+      <p>You type an invalid URL</p>
+    </>
+  )
+}
+
+export default ErrorPage;
+```
