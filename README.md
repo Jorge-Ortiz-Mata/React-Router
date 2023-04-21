@@ -1,5 +1,7 @@
 # React Router.
 
+This file provides information about React Router.
+
 ## Index
 
 ## Install the pakage
@@ -217,4 +219,31 @@ const Header = () => {
 }
 
 export default Header;
+```
+
+## Navigate prgramatically.
+
+We can navigate to another page when an action has been executed. Similar to React Native.
+
+* Home.jsx
+
+```javascript
+import { useNavigate } from "react-router-dom";
+
+const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/about')
+  }
+
+  return(
+    <>
+      <h1 className="text-2xl font-bold">Home Page</h1>
+      <button className="border bg-gray-300 text-sm font-bold p-2 rounded" onClick={handleClick}>Navigate</button>
+    </>
+  )
+}
+
+export default Home;
 ```
