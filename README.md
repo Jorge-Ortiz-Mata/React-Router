@@ -221,7 +221,7 @@ const Header = () => {
 export default Header;
 ```
 
-## Navigate prgramatically.
+## Navigate programatically.
 
 We can navigate to another page when an action has been executed. Similar to React Native.
 
@@ -246,4 +246,56 @@ const Home = () => {
 }
 
 export default Home;
+```
+
+## Dynamic Links.
+
+We can generate dynamic links to see information about a single item without having to create a lot of pages.
+
+* App.jsx
+
+```javascript
+children: [
+  { path: '/products/:id', element: <ProductPage /> }
+]
+```
+
+* Navbar.jsx
+
+```javascript
+import { Link } from "react-router-dom";
+
+...
+
+<li className="underline font-semibold text-sm">
+  <Link to="/products/1">
+    Product 01
+  </Link>
+</li>
+<li className="underline font-semibold text-sm">
+  <Link to="/products/2">
+    Product 02
+  </Link>
+</li>
+<li className="underline font-semibold text-sm">
+  <Link to="/products/3">
+    Product 03
+  </Link>
+</li>
+```
+
+* ProductPage.jsx
+
+```javascript
+import { useParams } from 'react-router-dom';
+
+const ProductPage = () => {
+  const params = useParams();
+
+  return(
+    <p>This is your product: {params.id}</p>
+  )
+}
+
+export default ProductPage;
 ```
