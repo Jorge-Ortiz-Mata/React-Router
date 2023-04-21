@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
@@ -7,14 +7,30 @@ const Header = () => {
       <h3 className="font-bold text-xl">My App</h3>
       <ul className="flex items-center justify-between gap-5">
         <li className="text-sm font-semibold underline">
-          <Link to="/">
+          <NavLink
+            to="/"
+            className={({isActive}) => (
+              isActive
+              ? 'text-red-800'
+              : 'text-gray-600'
+            )}
+            end
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li className="text-sm font-semibold underline">
-          <Link to="/about">
+          <NavLink
+            to="/about"
+            className={({isActive}) => (
+              isActive
+              ? 'text-red-800'
+              : 'text-gray-600'
+            )}
+            end
+          >
             About
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
