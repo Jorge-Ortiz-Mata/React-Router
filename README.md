@@ -1,5 +1,7 @@
 # React Router.
 
+## Index
+
 ## Install the pakage
 
 ```bash
@@ -31,4 +33,105 @@ function App() {
 }
 
 export default App;
+```
+
+## Older solutions.
+
+You can find different solutions on how to declare the routes.
+
+```javascript
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+
+const routeDefinitions = createRoutesFromElements(
+  <Route>
+    <Route path='/' element={<Home />} />
+    <Route path='/about' element={<About />} />
+  </Route>
+);
+
+const router = createBrowserRouter(routeDefinitions)
+
+function App() {
+  return <RouterProvider router={router} />
+}
+
+export default App;
+```
+
+## Add links and navigate
+
+We could navigate between pages with the Route component.
+
+```javascript
+import { Link } from 'react-router-dom';
+
+const Header = () => {
+
+  return(
+    <nav className="flex items-center justify-between px-5 py-3 border">
+      <h3 className="font-bold text-xl">My App</h3>
+      <div>
+        <Link to="/">
+          Home
+        </Link>
+        <Link to="/about">
+          About
+        </Link>
+      </div>
+    </nav>
+  )
+}
+
+export default Header;
+```
+
+## Adding Layouts (layouts for all our pages).
+
+We define our Layout (RouteLayout for example) and set all the components will be rendered with the same format.
+
+* App.jsx
+
+```javascript
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import RouteLayout from './pages/RouteLayout';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RouteLayout /> ,
+    children: [
+      { path: '/', element: <Home />},
+      { path: '/about', element: <About />}
+    ]
+  },
+])
+
+function App() {
+  return <RouterProvider router={router} />
+}
+
+export default App;
+```
+
+* src/pages/RouteLayout.jsx
+
+```javascript
+import { Outlet } from 'react-router-dom';
+import Header from '../components/Header/Header';
+
+const RouteLayout = () => {
+
+  return(
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
+}
+
+export default RouteLayout;
 ```
