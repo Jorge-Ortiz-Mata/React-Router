@@ -13,6 +13,7 @@ This file provides information about React Router.
 - [Navigate programatically.](#navigate-programatically)
 - [Dynamic links.](#dynamic-links)
 - [Absolute and relative paths.](#absolute-and-relative-paths)
+- [Firebase Deployment.](#firebase-deployment)
 
 ## Install the pakage
 
@@ -343,3 +344,49 @@ Absoulte paths start with the "/" character, while relative paths don't start wi
   ]
 },
 ```
+
+
+## Firebase Deployment.
+
+We can deploy our web applications to Firebase by following the next steps.
+
+1. Once your project is ready, build the static files with this command:
+
+```bash
+$ npm run build
+```
+
+2. Create a project in Firebase and select the option **Hosting**.
+
+3. Install the foloowing packages.
+
+```bash
+$ npm install -g firebase-tools
+```
+
+4. Authenticate with Firebase.
+
+```bash
+$ firebase login
+```
+
+5. Initialize Firebase. This will required some extra configuration.
+
+```bash
+$ firebase init
+```
+
+  5.1 It'll ask you which service you will use. Select the option: **Hosting: Configure files for Firebase Hosting and (optionally) set up a GitHub Action Deploy**.
+  5.2 Use an existing project or create a new project.
+  5.3 You have to specify the root of your files. In this case, type `build`.
+  5.4 Select **yes** to configure to a single-page app.
+  5.4 Select **no** to not set an automatic github action to automatically deploy your app.
+  5.4 Select **no** to not overwrite the index.html file.
+
+6. Deploy your site.
+
+```bash
+$ firebase deploy
+```
+
+That's all.
