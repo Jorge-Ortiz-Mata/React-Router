@@ -380,8 +380,8 @@ $ firebase init
   5.2 Use an existing project or create a new project.
   5.3 You have to specify the root of your files. In this case, type `build`.
   5.4 Select **yes** to configure to a single-page app.
-  5.4 Select **no** to not set an automatic github action to automatically deploy your app.
-  5.4 Select **no** to not overwrite the index.html file.
+  5.5 Select **no** to not set an automatic github action to automatically deploy your app.
+  5.6 Select **no** to not overwrite the index.html file.
 
 6. Deploy your site.
 
